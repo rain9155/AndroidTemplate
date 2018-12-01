@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="Mvp Templete"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates new MVP Templete, including contract, model, view(activity or fragment), presenter">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+	 <parameter
+        id="pageName"
+        name="Page Name"
+        type="string"
+        constraints="unique|nonempty"
+        default="Main"
+        help="Please fill in the pageName， like Main above，will create MainActivity(Fragment), MainModel, MainPresenter and MainContract Automatically" />
+		
+		
+	<parameter
+        id="generateActivity"
+        name="Generate Activity"
+        type="boolean"
+        default="true"
+        help="Tick the box if you want to generate Activity, otherwise cancel the tick" />
+		
+		
+	<parameter
+        id="activityLayoutName"
+        name="Activity Layout Name"
+        type="string"
+        constraints="layout|nonempty"
+        suggest="${activityToLayout(pageName)}"
+        default="activity_main"
+        visibility="generateActivity"
+        help="Please fill in the activityLayoutName(Nonempty)" />
+		
+	<parameter
+        id="generateActivityLayout"
+        name="Generate Activity Layout"
+        type="boolean"
+        default="true"
+        visibility="generateActivity"
+        help="Tick the box if your activityLayout not created yet, otherwise cancel the tick" />
+		
+		
+	<parameter
+        id="ativityPackageName"
+        name="Ativity Package Name"
+        type="string"
+        constraints="nonempty"
+        suggest=".view.activity"
+        visibility="generateActivity"
+        help="Please fill in the ativityPackageName base on the Package name"/>
+		
+		
+	<parameter
+        id="generateFragment"
+        name="Generate Fragment"
+        type="boolean"
+        default="false"
+        help="Tick the box if you want to generate Fragment, otherwise cancel the tick" /> 
+
+
+    <parameter
+        id="fragmentLayoutName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty"
+        suggest="fragment_${classToResource(pageName)}"
+        default="fragment_main"
+        visibility="generateFragment"
+        help="Please fill in the fragmentLayoutName(Nonempty)" /> 
+
+
+
+ <parameter
+        id="generateFragmentLayout"
+        name="Generate Fragment Layout"
+        type="boolean"
+        default="true"
+        visibility="generateFragment"
+        help="Tick the box if your fraagmentLayout not created yet, otherwise cancel the tick" />
+
+
+ <parameter
+        id="fragmentPackageName"
+        name="Fragment Package Name"
+        type="string"
+        constraints="nonempty"
+        suggest=".view.fragment"
+        visibility="generateFragment"
+        help="Please fill in the fragmentPackageName base on the Package name"/>  
+
+
+<parameter
+        id="presenterName"
+        name="Presenter Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${pageName}Presenter"
+        default="Main"
+        help="Please fill in the presenterName(Nonempty)" />
+		
+		
+<parameter
+        id="presenterPackageName"
+        name="Presenter Package Name"
+        type="string"
+        constraints="nonempty"
+        suggest=".presenter"
+        help="Please fill in the presenterPackageName base on the Package name"
+        /> 
+		
+		
+<parameter
+        id="modelName"
+        name="Model Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${pageName}Model"
+        default="Main"
+        help="Please fill in the modelName(Nonempty)" />         
+
+<parameter
+        id="modelPackageName"
+        name="Model Package Name"
+        type="string"
+        constraints="nonempty"
+        suggest=".model"
+        help="Please fill in the modelPackageName base on the Package name"
+        /> 
+		
+<parameter
+        id="contractName"
+        name="contract Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${pageName}Contract"
+        default="Main"
+        help="Please fill in the contractName(Nonempty)" />         
+
+<parameter
+        id="contractPackageName"
+        name="Contract Package Name"
+        type="string"
+        constraints="nonempty"
+        suggest=".contract"
+        help="Please fill in the contractPackageName base on the Package name"
+        /> 
+		
+ <parameter
+        id="packageName"
+        name="Package Name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp"
+		help="The root packageName"/>
+	
+ 
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
