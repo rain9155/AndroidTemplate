@@ -5,13 +5,15 @@
 将 MVPTemplate这个文件夹复制到AS Activity模版的存放路径, 请注意是复制整个文件夹, 不是里面的内容!
  * Window的AS Activity模版存放路径: 你的AS安装目录/plugins/android/lib/templates/activities
  * Mac的AS Activity模版存放路径: /Applications/Android Studio.app/Contents/plugins/android/lib/templates/activities <br>
- 然后重启AS
+ <br> 然后重启AS
  #### Second Step
  在AS中在你的项目根路径下鼠标右键->new->Activity->MVPTemplate <br>
 ![a1](/screenshots/a1.png) <br>
-然后在面板中编辑属性，都见名知义 <br>
+<br> 然后在面板中编辑属性，都见名知义 <br><br>
 ![a2](/screenshots/a2.png) <br>
 ![a3](/screenshots/a3.png) <br>
-然后点击Finish,项目结构如下，带红色的类，都是要自己导入的<br>
+<br> 然后点击Finish,项目结构如下，带红色的类，都是要自己导入的<br><br>
 ![a4](/screenshots/a4.png) <br>
-
+### Reference
+[Android Studio自定义模板 写页面竟然可以如此轻松](https://blog.csdn.net/lmj623565791/article/details/51635533) <br>
+[MVPArmsTemplate](https://github.com/JessYanCoding/MVPArmsTemplate)
