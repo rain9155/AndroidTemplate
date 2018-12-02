@@ -1,11 +1,22 @@
 <?xml version="1.0"?>
-<#import "root://activities/common/kotlin_macros.ftl" as kt>
-<recipe>
 
-    <@kt.addAllKotlinDependencies />
+<#import "root://activities/common/kotlin_macros.ftl" as kt>
+
+<recipe>
+	
 	<#if generateActivity>
-		<megre from="root/AndroidManifest.xml.ftl" 
-				to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml"/>
+			<#include "root/recipe_manifest.xml.ftl" />
+			<merge from="root/AndroidManifest.xml.ftl"
+					to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+	</#if>
+	
+	<@kt.addAllKotlinDependencies />
+
+	<#if generateFragment && generateFragmentLayout>
+		<instantiate from="root/res/layout/simple.xml.ftl"
+					 to="${escapeXmlAttribute(resOut)}/layout/${fragmentLayoutName}.xml" />
+		<open file="${escapeXmlAttribute(resOut)}/layout/${fragmentLayoutName}.xml" />
+
 	</#if>
 	
 	<#if generateActivity && generateActivityLayout>
@@ -14,19 +25,12 @@
 		<open file="${escapeXmlAttribute(resOut)}/layout/${activityLayoutName}.xml" />
 	</#if>
 
-	<#if generateFragment && generateFragmentLayout>
-		<instantiate from="root/res/layout/simple.xml.ftl"
-					 to="${escapeXmlAttribute(resOut)}/layout/${fragmentLayoutName}.xml" />
-		<open file="${escapeXmlAttribute(resOut)}/layout/${fragmentLayoutName}.xml" />
-
-	</#if>
-
 	<#if generateActivity>
 		<instantiate from="root/src/app_package/SimpleActivity.${ktOrJavaExt}.ftl"
 					   to="${escapeXmlAttribute(srcOut)}${slashedPackageName(ativityPackageName)}/${pageName}Activity.${ktOrJavaExt}"/>
 		<open file="${escapeXmlAttribute(srcOut)}${slashedPackageName(ativityPackageName)}/${pageName}Activity.${ktOrJavaExt}"/>
 	</#if>
-
+	
 	<#if generateFragment>
 		<instantiate from="root/src/app_package/SimpleFragment.${ktOrJavaExt}.ftl"
 					   to="${escapeXmlAttribute(srcOut)}${slashedPackageName(fragmentPackageName)}/${pageName}Fragment.${ktOrJavaExt}" />
@@ -43,7 +47,6 @@
 	
 	<instantiate from="root/src/app_package/SimpleContract.${ktOrJavaExt}.ftl"
 					to="${escapeXmlAttribute(srcOut)}${slashedPackageName(contractPackageName)}/${contractName}.${ktOrJavaExt}"/>
-	 <open file="${escapeXmlAttribute(srcOut)}${slashedPackageName(contractPackageName)}/${contractName}.${ktOrJavaExt}" />
-
-
+	<open file="${escapeXmlAttribute(srcOut)}${slashedPackageName(contractPackageName)}/${contractName}.${ktOrJavaExt}" />
+	
 </recipe>

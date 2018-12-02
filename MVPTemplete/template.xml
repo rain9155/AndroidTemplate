@@ -26,6 +26,13 @@
         default="true"
         help="Tick the box if you want to generate Activity, otherwise cancel the tick" />
 		
+	<parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+		visibility="generateActivity"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
 		
 	<parameter
         id="activityLayoutName"
