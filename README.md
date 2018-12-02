@@ -6,7 +6,7 @@
  * Window的AS Activity模版存放路径: 你的AS安装目录/plugins/android/lib/templates/activities
  * Mac的AS Activity模版存放路径: /Applications/Android Studio.app/Contents/plugins/android/lib/templates/activities <br>
  #### Second Step
- 在AS中在你的项目根路径下鼠标右键->new->Activity->MVPTemplate <br>
+ 在AS中在你的项目根路径下鼠标右键->new->Activity->MVPTemplate <br><br>
 ![a1](/screenshots/a1.png) <br>
 <br> 然后在面板中编辑属性，都见名知义 <br><br>
 ![a2](/screenshots/a2.png) <br>
