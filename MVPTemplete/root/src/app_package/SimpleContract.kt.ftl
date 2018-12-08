@@ -1,6 +1,6 @@
 package ${packageName}${contractPackageName}
 
-public interface ${contractName}{
+interface ${contractName}{
 
 	interface View : IView{
 		
